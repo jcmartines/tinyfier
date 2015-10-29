@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1(align='center') Get Tiny URL
+  #container.col(align='center')
+    form#formGetLink(method='post', action='/tinyURL')
+      | URL: 
+      if fullurl
+        input(type='text', name='fullurl', value='#{fullurl}')
+      else
+        input(type='text', name='fullurl')
+      br
+      br
+      button(type='submit') Convert!
+  br
+  #container_tiny.col(align='center')
+    if tinyfied
+      h5 Your tiny URL is: http://localhost:3000/#{tinyfied}
